@@ -21,6 +21,7 @@ public class Prey : Animal // INHERITANCE
 
             if (Mathf.Abs(transform.position.x + direction.x) > 57 || Mathf.Abs(transform.position.z + direction.z) > 25)
             {
+                GameManager.UpdateEscapedPrey();
                 Destroy(gameObject);
             }
         }

@@ -43,6 +43,7 @@ public class Predator : Animal // INHERITANCE
     {
         if (collision.gameObject.CompareTag("Prey")) 
         {
+            GameManager.UpdateCaughtPrey();
             Destroy(collision.gameObject);
         }
     }
