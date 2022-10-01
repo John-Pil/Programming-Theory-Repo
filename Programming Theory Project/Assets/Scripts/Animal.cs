@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Animal : MonoBehaviour
 {
-    [SerializeField] protected float speed = 10f;
+    [SerializeField] protected float speed = 3f; // ENCAPUSLATION
+    protected Coroutine standardRoutine;
 
     // Start is called before the first frame update
     void Start()
     {        
         RandomRotate();
-        StartCoroutine(WalkForRandomTime());
+        standardRoutine = StartCoroutine(WalkForRandomTime());
     }
 
     // Update is called once per frame
@@ -19,7 +20,7 @@ public class Animal : MonoBehaviour
         MoveForward(Vector3.forward * speed * Time.deltaTime);
     }
 
-    IEnumerator WalkForRandomTime() 
+    protected IEnumerator WalkForRandomTime() 
     {
         yield return new WaitForSeconds(Random.Range(3f, 10f));
         RandomRotate();
@@ -39,6 +40,7 @@ public class Animal : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     protected void RandomRotate()
     {
         transform.Rotate(0, Random.Range(0f, 361f), 0);
