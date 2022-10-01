@@ -29,7 +29,7 @@ public class Animal : MonoBehaviour
 
     protected virtual void MoveForward(Vector3 direction) 
     {
-        if (Mathf.Abs(transform.position.x + direction.x) > 57 || Mathf.Abs(transform.position.z + direction.z) > 25)
+        if (Mathf.Abs(transform.position.x + direction.x) > GameManager.xBoundary || Mathf.Abs(transform.position.z + direction.z) > GameManager.zBoundary)
         {
             transform.Translate(-direction);
             RandomRotate();
